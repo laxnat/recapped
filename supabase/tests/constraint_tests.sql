@@ -38,7 +38,8 @@ insert into public.transactions (user_id, hobby_id, goal_id, kind, amount_cents)
 	('4c6cc990-1757-4f3e-bf54-734db4a101a8', '00000000-0000-0000-0000-000000000001', null, 'spend', 200);
 	
 -- Expect SUCCESS, deleting the hobby
-delete from public.hobbies where id = '00000000-0000-0000-0000-000000000001';
+delete from public.hobbies where id = '00000000-0000-0000-0000-000000000001'
+returning *;
 
 -- Expect: 0 (Reading goals were cascade-deleted)
 select count(*) from public.goals
